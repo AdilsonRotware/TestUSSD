@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\USSDController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +14,8 @@ use App\Http\Controllers\USSDController;
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/ussd', [USSDController::class, 'handle']);
-Route::post('/ussd/supervisor', [USSDController::class, 'handleSupervisor']);
-
+Route::any('/ussd', [USSDController::class, 'handle']);
